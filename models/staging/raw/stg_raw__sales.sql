@@ -13,8 +13,8 @@ renamed as (
         orders_id,
         pdt_id as product_id,
         revenue,
-        quantity
-
+        quantity,
+        concat(date_date,orders_id,pdt_id) as pkey
     from source
 
 )
