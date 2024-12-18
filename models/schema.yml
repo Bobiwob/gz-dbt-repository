@@ -131,41 +131,40 @@ sources:
             description: number of impressions on that day
           - name: click
             description: number of clicks on that day
-      - name: campaigns
-        identifier: int_campaigns
-        description: the statistics of from campaigns overall
-        columns:
-          - name: date_date
-            description: the date of campaign run
-          - name: campaign_key
-            description: the id of the campaign
-            tests:
-              - not_null
-          - name: paid_source
-            description: the source of the costs
-          - name: campaign_name
-            description: the name of the campaign on that day
-          - name: ads_cost
-            description: the cost of the ads on that day
-          - name: impression
-            description: number of impressions on that day
-          - name: click
-            description: number of clicks on that day
+models:
+  - name: int_campaigns
+    description: the statistics of from campaigns overall
+    columns:
+      - name: date_date
+        description: the date of campaign run
+      - name: campaign_key
+        description: the id of the campaign
         tests:
-          - unique:
-              column_name: "(date_date || '_' || campaign_key)"
-      - name: daily_campaigns
-        identifier: int_campaigns
-        description: the statistics of from campaigns overall
-        columns:
-          - name: date_date
-            description: the date of campaign run
-          - name: ads_cost
-            description: the costs of ads for that day
-          - name: ads_impresions
-            description: the impression for that day
-          - name: ads_clicks
-            description: the clicks of that day
+          - not_null
+      - name: paid_source
+        description: the source of the costs
+      - name: campaign_name
+        description: the name of the campaign on that day
+      - name: ads_cost
+        description: the cost of the ads on that day
+      - name: impression
+        description: number of impressions on that day
+      - name: click
+        description: number of clicks on that day
+    tests:
+      - unique:
+          column_name: "(date_date || '_' || campaign_key)"
+  - name: int_campaigns_day
+    description: the statistics of from campaigns overall
+    columns:
+      - name: date_date
+        description: the date of campaign run
+      - name: ads_cost
+        description: the costs of ads for that day
+      - name: ads_impresions
+        description: the impression for that day
+      - name: ads_clicks
+        description: the clicks of that day
 
 
         
